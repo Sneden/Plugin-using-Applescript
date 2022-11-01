@@ -11,3 +11,18 @@ Mapped this plugin to 'Control+T' on the keyboard through MAC settings. This was
 
 Perks :
 Reduces time significantly by opening multiple links at a time with a click of just 2 buttons on the mouse.
+
+
+
+Below is the script :
+
+on run {input, parameters}
+set theURLs to paragraphs of (the clipboard)
+tell application "Google Chrome"
+tell front window
+repeat with i from 1 to the length of theURLs
+set activetab to make new tab at end of tabs with properties {URL:item i of theURLs}
+end repeat
+end tell
+end tell
+end run
